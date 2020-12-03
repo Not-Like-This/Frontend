@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./Pages/App/App";
 import "./index.css";
+import { CreateReport } from "./Pages/Reports/Report";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<CreateReport />
 	</React.StrictMode>,
 	document.getElementById("root"),
 );
