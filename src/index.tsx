@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import { CreateReport } from "./Pages/Reports/Report";
+import { User } from "./Pages/User/User";
+import { HomePage } from "./Pages/HomePage/HomePage";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<CreateReport />
+		<HomePage />
 	</React.StrictMode>,
 	document.getElementById("root"),
 );
