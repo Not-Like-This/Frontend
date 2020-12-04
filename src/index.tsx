@@ -4,10 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { User } from "./Pages/User/User";
 import { HomePage } from "./Pages/HomePage/HomePage";
+import { Login } from "./Pages/Login/Login";
+import { SignUp } from './Pages/Signup/SignUp';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<HomePage />
+		<Login />
 	</React.StrictMode>,
 	document.getElementById("root"),
 );
