@@ -6,11 +6,13 @@ import { HomePage } from './Pages/HomePage/HomePage';
 import { User } from './Pages/User/User';
 import { Container } from 'react-bootstrap';
 import { CreateReportPage } from './Pages/Reports/CreateReportPage';
+import { Login } from './Pages/Login/Login';
+import { SignUp } from './Pages/Signup/SignUp';
 
 ReactDOM.render(
 	<React.StrictMode>
 		<Container fluid className="min-100">
-			<CreateReportPage/>
+			<SignUp/>
 		</Container>
 	</React.StrictMode>,
 	document.getElementById("root"),

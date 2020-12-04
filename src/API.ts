@@ -1,8 +1,7 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 const HOST = "http://localhost:3000";
 
 export class API {
-
 	static async getUser() {
 		const user = await this.get("/users");
 		return new APIUser(user);
@@ -25,14 +24,16 @@ export class API {
 		return await this.post("/users", body);
 	}
 
-	static async post(url: string,obj: any){
-		const res = await fetch(`${HOST}${url}`,{method:"post", body:obj});
+	static async post(url: string, obj: any) {
+		const res = await fetch(`${HOST}${url}`, {
+			method: "post",
+			body: JSON.stringify(obj),
+		});
 		return await res.json();
 	}
 }
 
 export class APIUser {
-
 	firstName: string;
 	lastName: string;
 	birthDate: DateTime;
@@ -44,5 +45,4 @@ export class APIUser {
 		this.birthDate = DateTime.fromISO(data.birthDate);
 		this.email = data.email;
 	}
-
 }

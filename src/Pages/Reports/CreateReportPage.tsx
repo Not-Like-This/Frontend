@@ -11,11 +11,10 @@ import { AppBar } from "../../Components/AppBar";
 
 export class CreateReportPage extends Component {
 	sendReport() {
-		const spotName = this.getFormElement("nameSpot").value;
 
 		const report = {
-			city: spotName,
-			spotName: spotName,
+			city: this.getFormElement("nameSpot").value,
+			spotName: this.getFormElement("city").value,
 			bathersAmount: 1,
 			practicingSportsAmount: 0,
 			boatAmount: 1,

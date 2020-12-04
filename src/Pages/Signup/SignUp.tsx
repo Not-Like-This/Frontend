@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { API } from "src/API";
+import { API } from "../../API";
 import "./signup.css"
+import { Form, Button } from 'react-bootstrap';
 
 export class SignUp extends Component {
     render() {
         return (
-            <form>
+            <Form>
                 <h3>Inscription</h3>
 
                 <div className="form-group">
@@ -28,11 +29,11 @@ export class SignUp extends Component {
                     <input type="password" className="form-control" placeholder="Mot de passe" id="inputPassword"/>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block" onClick={(e) => this.sendRegistration()}>S'inscrire</button>
+                <Button onClick={(e) => this.sendRegistration()}>S'inscrire</Button>
                 <p className="forgot-password text-right">
                     Déjà inscrit ? <a href="#">se connecter?</a>
                 </p>
-            </form>
+            </Form>
         );
     }
 
@@ -40,19 +41,20 @@ export class SignUp extends Component {
         return document.getElementById(id) as HTMLInputElement;
     }
 
-    private sendRegistration(){
+    private async sendRegistration(){
         const prenomForm = this.getFormElement("inputPrenom").value;
         const nomForm = this.getFormElement("inputNom").value;
         const emailForm = this.getFormElement("inputEmail").value;
         const passwordForm = this.getFormElement("inputPassword").value;
 
         const registrationInfo = {
-            prenom: prenomForm,
-            nom: nomForm,
+            firstName: prenomForm,
+            lastName: nomForm,
             email: emailForm,
             password: passwordForm,
         };
-
-        API.register(registrationInfo);
+		console.log(registrationInfo);
+		const res = await API.register(registrationInfo);
+		console.log(res);
     }
 }
