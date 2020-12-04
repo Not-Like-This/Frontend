@@ -1,8 +1,7 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 const HOST = "http://localhost:3000";
 
 export class API {
-
 	static async getUser() {
 		const user = await this.get("/users");
 		return new APIUser(user);
@@ -16,10 +15,10 @@ export class API {
 	static async getSpots() {
 		return await this.get("/spots");
 	}
+
 }
 
 export class APIUser {
-
 	firstName: string;
 	lastName: string;
 	birthDate: DateTime;
@@ -31,5 +30,4 @@ export class APIUser {
 		this.birthDate = DateTime.fromISO(data.birthDate);
 		this.email = data.email;
 	}
-
 }
