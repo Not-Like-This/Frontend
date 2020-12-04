@@ -13,6 +13,9 @@ export class API {
 		return await res.json();
 	}
 
+	static async getSpots() {
+		return await this.get("/spots");
+	}
 }
 
 export class APIUser {
