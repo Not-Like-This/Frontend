@@ -7,7 +7,7 @@ import {
 	ButtonGroup,
 	Form,
 } from "react-bootstrap";
-import { API } from "src/API";
+import { API } from "../../API";
 import { AppBar } from "../../Components/AppBar";
 
 export class CreateReportPage extends Component {
@@ -29,6 +29,8 @@ export class CreateReportPage extends Component {
 			paint: this.getFormElement("checkboxPaint").value,
 		};
 		API.post("/report",report);
+
+		document.getElementById("sentReport").hidden = false;
 	}
 
 	getFormElement(id: string) {
@@ -202,12 +204,13 @@ export class CreateReportPage extends Component {
 								/>
 							</Row>
 							<Row>
-								<Form.Check 
-									type="checkbox" 
-									label="Peinture" 
+								<Form.Check
+									type="checkbox"
+									label="Peinture"
 									id="checkboxPaint"
 								/>
 							</Row>
+							<Row id="sentReport" hidden>Votre rapport a bien été envoyé !</Row>
 							<Button onClick={(e) => this.sendReport()}>
 								Envoyer le signalement
 							</Button>
