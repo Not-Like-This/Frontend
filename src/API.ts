@@ -17,12 +17,12 @@ export class API {
 		return await this.get("/spots");
 	}
 
-	static async login() {
-		return await this.get("/users/login");
+	static async login(body: any) {
+		return await this.post("/users/login", body);
 	}
 
-	static async register() {
-		return await this.get("/users");
+	static async register(body: any) {
+		return await this.post("/users", body);
 	}
 
 	static async post(url: string,obj: any){
