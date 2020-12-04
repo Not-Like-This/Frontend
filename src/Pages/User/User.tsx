@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
-import { API } from "../../API";
+import { Container, Row, Col, CardGroup, Card } from "react-bootstrap";
+import { API, APIUser } from "../../API";
 import { AppBar } from "../../Components/AppBar";
+import { DateTime } from "luxon";
 
 interface UserState {
-	user: {
-		firstName: string;
-		lastName: string;
-		birthDate: Date;
-		email: string;
-	};
+	user: APIUser;
 	hasLoaded: boolean;
 }
 
@@ -38,20 +34,47 @@ export class User extends Component {
 		return <p>Loading user data...</p>;
 	}
 
+	getFullName() {
+		return `${this.state.user.firstName} ${this.state.user.lastName}`;
+	}
+
 	getLoadingIndicator() {
 		return (
 			<div>
 				<AppBar />
-				<Col mt-1>
-					<p>User data loaded:</p>
-					<p>
-						{" "}
-						- Name:{" "}
-						{`${this.state.user.firstName} ${this.state.user.lastName}`}
-					</p>
-					<p> - Birthdata: {this.state.user.birthDate}</p>
-					<p> - Email: {this.state.user.email}</p>
-				</Col>
+				<p>Profil</p>
+				<p>Name: {this.getFullName()}</p>
+				<p>Birthdata: {this.state.user.birthDate.toLocaleString()}</p>
+				<p>Email: {this.state.user.email}</p>
+
+				<Row className="ml-4 mr-4 d-flex justify-content-between">
+					<CardGroup>
+						<Card
+							style={{ textAlign: "center" }}
+							onClick={(e: any) => console.log("Click on clard")}
+						>
+							<Card.Body>
+								<Card.Title>Mes rapports</Card.Title>
+							</Card.Body>
+						</Card>
+						<Card
+							onClick={(e: any) => console.log("Click on clard")}
+						>
+							<Card.Body>
+								<Card.Title>
+									Changer mon mot de passe
+								</Card.Title>
+							</Card.Body>
+						</Card>
+						<Card
+							onClick={(e: any) => console.log("Click on clard")}
+						>
+							<Card.Body>
+								<Card.Title>Déconnection</Card.Title>
+							</Card.Body>
+						</Card>
+					</CardGroup>
+				</Row>
 			</div>
 		);
 	}
