@@ -2,15 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import { User } from "./Pages/User/User";
-import { HomePage } from "./Pages/HomePage/HomePage";
-import { Login } from "./Pages/Login/Login";
-import { SignUp } from './Pages/Signup/SignUp';
-import { CreateReportPage } from "./Pages/Reports/CreateReportPage";
+import { HomePage } from './Pages/HomePage/HomePage';
+import { User } from './Pages/User/User';
+import { Container } from 'react-bootstrap';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<CreateReportPage />
+		<Container fluid className="min-100">
+			<User/>
+		</Container>
 	</React.StrictMode>,
 	document.getElementById("root"),
 );

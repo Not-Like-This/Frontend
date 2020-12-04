@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from 'react-bootstrap';
 import { API } from "../../API";
-import { AppBar } from '../../Components/AppBar';
+import { AppBar } from "../../Components/AppBar";
 
 interface UserState {
 	user: {
 		firstName: string;
 		lastName: string;
 		birthDate: Date;
+		email: string;
 	};
 	hasLoaded: boolean;
 }
@@ -39,9 +40,9 @@ export class User extends Component {
 
 	getLoadingIndicator() {
 		return (
-			<Container>
+			<div>
 				<AppBar />
-				<div>
+				<Col mt-1>
 					<p>User data loaded:</p>
 					<p>
 						{" "}
@@ -49,8 +50,9 @@ export class User extends Component {
 						{`${this.state.user.firstName} ${this.state.user.lastName}`}
 					</p>
 					<p> - Birthdata: {this.state.user.birthDate}</p>
-				</div>
-			</Container>
+					<p> - Email: {this.state.user.email}</p>
+				</Col>
+			</div>
 		);
 	}
 }
