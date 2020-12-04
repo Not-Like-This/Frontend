@@ -28,6 +28,9 @@ export class API {
 		const res = await fetch(`${HOST}${url}`, {
 			method: "post",
 			body: JSON.stringify(obj),
+			headers: {
+				"Content-Type": "application/json"
+			}
 		});
 		return await res.json();
 	}

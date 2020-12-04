@@ -12,7 +12,7 @@ import { SignUp } from './Pages/Signup/SignUp';
 ReactDOM.render(
 	<React.StrictMode>
 		<Container fluid className="min-100">
-			<SignUp/>
+			<Login/>
 		</Container>
 	</React.StrictMode>,
 	document.getElementById("root"),
