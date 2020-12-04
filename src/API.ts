@@ -17,6 +17,14 @@ export class API {
 		return await this.get("/spots");
 	}
 
+	static async login() {
+		return await this.get("/users/login");
+	}
+
+	static async register() {
+		return await this.get("/users");
+	}
+
 	static async post(url: string,obj: any){
 		const res = await fetch(`${HOST}${url}`,{method:"post", body:obj});
 		return await res.json();
