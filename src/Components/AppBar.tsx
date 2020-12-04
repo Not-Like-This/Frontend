@@ -23,7 +23,7 @@ export class AppBar extends Component {
 				<Navbar.Brand href="#home" className="justify-content-right">
 					<img
 						alt=""
-						src="/logo-64.jpg"
+						src="/logo-64.png"
 						width="30"
 						height="30"
 						className="d-inline-block align-top"

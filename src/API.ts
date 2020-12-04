@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-const HOST = "http://localhost:3000";
+const HOST = "http://51.158.79.247:3000";
 
 export class API {
 	static async getUser() {
