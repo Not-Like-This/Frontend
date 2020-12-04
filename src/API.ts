@@ -16,6 +16,11 @@ export class API {
 	static async getSpots() {
 		return await this.get("/spots");
 	}
+
+	static async post(url: string,obj: any){
+		const res = await fetch(`${HOST}${url}`,{method:"post", body:obj});
+		return await res.json();
+	}
 }
 
 export class APIUser {
