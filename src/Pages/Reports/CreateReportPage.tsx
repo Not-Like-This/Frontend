@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { AppBar } from "../../Components/AppBar";
 import { Container } from "react-bootstrap";
+import { AppBar } from '../../Components/AppBar';
 
-export class HomePage extends Component {
+export class CreateReportPage extends Component {
 	render() {
 		return (
 			<Container fluid className="min-100">
-				<AppBar />
+				<AppBar/>
 			</Container>
 		);
 	}
