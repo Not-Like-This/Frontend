@@ -10,6 +10,7 @@ import {
 	Card,
 	Table,
 } from "react-bootstrap";
+import { Redirect, Link } from 'react-router-dom';
 import { AppBar } from "../../Components/AppBar";
 
 export class HomePage extends Component {
@@ -34,13 +35,9 @@ export class HomePage extends Component {
 				<Row>
 					<Col sm={9} className="mt-5">
 						<CardGroup>
-							<Card
-								onClick={(e: any) =>
-									console.log("Click on clard")
-								}
-							>
+							<Card>
 								<Card.Body>
-									<Card.Title>Faire un rapport</Card.Title>
+									<Link to="/report">Faire rapport</Link>
 								</Card.Body>
 							</Card>
 							<Card
