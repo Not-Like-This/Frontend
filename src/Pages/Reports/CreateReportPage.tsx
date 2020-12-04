@@ -7,6 +7,7 @@ import {
 	ButtonGroup,
 	Form,
 } from "react-bootstrap";
+import { API } from "src/API";
 import { AppBar } from "../../Components/AppBar";
 
 export class CreateReportPage extends Component {
@@ -15,18 +16,19 @@ export class CreateReportPage extends Component {
 		const report = {
 			city: this.getFormElement("nameSpot").value,
 			spotName: this.getFormElement("city").value,
-			bathersAmount: 1,
-			practicingSportsAmount: 0,
-			boatAmount: 1,
-			solarCream: false,
-			perfume: false,
-			hydratingCream: true,
-			makeup: false,
-			gasoline: false,
-			cigarettes: false,
-			fertilizer: false,
-			paint: false,
+			bathersAmount: this.getFormElement("buttonGroupSwimmer").value,
+			practicingSportsAmount: this.getFormElement("buttonGroupSurfer").value,
+			boatAmount: this.getFormElement("buttonGroupBoat").value,
+			solarCream: this.getFormElement("checkboxSunCream").value,
+			perfume: this.getFormElement("checkboxPerfume").value,
+			hydratingCream: this.getFormElement("checkboxCream").value,
+			makeup: this.getFormElement("checkboxMakeup").value,
+			gasoline: this.getFormElement("checkboxFuel").value,
+			cigarettes: this.getFormElement("checkboxCigarettes").value,
+			fertilizer: this.getFormElement("checkboxFertilizer").value,
+			paint: this.getFormElement("checkboxPaint").value,
 		};
+		API.post("/report",report);
 	}
 
 	getFormElement(id: string) {
@@ -100,38 +102,38 @@ export class CreateReportPage extends Component {
 							</Row>
 							<Row>
 								Qualité de l'eau :
-								<ButtonGroup toggle>
-									<Button variant="secondary">Elevé</Button>
-									<Button variant="secondary">Moyen</Button>
-									<Button variant="secondary">Bas</Button>
-									<Button variant="secondary">Aucun</Button>
+								<ButtonGroup toggle id="buttonGroupWater">
+									<Button variant="secondary" value="100">Elevé</Button>
+									<Button variant="secondary" value="50">Moyen</Button>
+									<Button variant="secondary" value="25">Bas</Button>
+									<Button variant="secondary" value="0">Aucun</Button>
 								</ButtonGroup>
 							</Row>
 							<Row>
 								Nombre de baigneurs :
-								<ButtonGroup toggle>
-									<Button variant="secondary">Elevé</Button>
-									<Button variant="secondary">Moyen</Button>
-									<Button variant="secondary">Bas</Button>
-									<Button variant="secondary">Aucun</Button>
+								<ButtonGroup toggle id="buttonGroupSwimmer">
+									<Button variant="secondary" value="100">Elevé</Button>
+									<Button variant="secondary" value="50">Moyen</Button>
+									<Button variant="secondary" value="25">Bas</Button>
+									<Button variant="secondary" value="0">Aucun</Button>
 								</ButtonGroup>
 							</Row>
 							<Row>
 								Nombre de surfeurs :
-								<ButtonGroup toggle>
-									<Button variant="secondary">Elevé</Button>
-									<Button variant="secondary">Moyen</Button>
-									<Button variant="secondary">Bas</Button>
-									<Button variant="secondary">Aucun</Button>
+								<ButtonGroup toggle id="buttonGroupSurfer">
+									<Button variant="secondary" value="100">Elevé</Button>
+									<Button variant="secondary" value="50">Moyen</Button>
+									<Button variant="secondary" value="25">Bas</Button>
+									<Button variant="secondary" value="0">Aucun</Button>
 								</ButtonGroup>
 							</Row>
 							<Row>
 								Nombre de bateaux :
-								<ButtonGroup toggle>
-									<Button variant="secondary">Elevé</Button>
-									<Button variant="secondary">Moyen</Button>
-									<Button variant="secondary">Bas</Button>
-									<Button variant="secondary">Aucun</Button>
+								<ButtonGroup toggle id="buttonGroupBoat">
+									<Button variant="secondary" value="100">Elevé</Button>
+									<Button variant="secondary" value="50">Moyen</Button>
+									<Button variant="secondary" value="25">Bas</Button>
+									<Button variant="secondary" value="0">Aucun</Button>
 								</ButtonGroup>
 							</Row>
 							<Row>
@@ -154,43 +156,57 @@ export class CreateReportPage extends Component {
 								<Form.Check
 									type="checkbox"
 									label="Crème solaire"
+									id="checkboxSunCream"
 								/>
 							</Row>
 							<Row>
 								<Form.Check
 									type="checkbox"
 									label="Parfum / déodorants"
+									id="checkboxPerfume"
 								/>
 							</Row>
 							<Row>
 								<Form.Check
 									type="checkbox"
 									label="Crème hydratante"
+									id="checkboxCream"
 								/>
 							</Row>
 							<Row>
 								<Form.Check
 									type="checkbox"
 									label="Maquillage"
+									id="checkboxMakeup"
 								/>
 							</Row>
 							<Row>
-								<Form.Check type="checkbox" label="Essence" />
+								<Form.Check
+									type="checkbox"
+									label="Essence"
+									id="checkboxFuel"
+								/>
 							</Row>
 							<Row>
 								<Form.Check
 									type="checkbox"
 									label="Cigarettes"
+									id="checkboxCigarettes"
 								/>
 							</Row>
 							<Row>
 								<Form.Check
 									type="checkbox"
 									label="Engrais / Fertilisants"
+									id="checkboxFertilizer"
 								/>
 							</Row>
 							<Row>
-								<Form.Check type="checkbox" label="Peinture" />
+								<Form.Check 
+									type="checkbox" 
+									label="Peinture" 
+									id="checkboxPaint"
+								/>
 							</Row>
 							<Button onClick={(e) => this.sendReport()}>
 								Envoyer le signalement
